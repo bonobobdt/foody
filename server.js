@@ -31,12 +31,12 @@ server.get('/biruliro', function(req, res){
     return res.render('layout');
 });
 
-
 server.get("/recipes/:index", function (req, res) {
     const recipeIndex = req.params.index;
     const recipe = recipes[recipeIndex];
-    return res.render('instructions', {recipe: recipe });
+    return res.render('instructions', {recipe: recipe});
 });
+
 
 server.listen(5000, function(){
     console.log('server is running');

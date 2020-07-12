@@ -1,86 +1,65 @@
 
+const receitas = document.querySelectorAll('.card');
 
-const modalOverlay = document.querySelector('.modal');
-const cards = document.querySelectorAll('.card');
-const modalRecipe = document.querySelector('.recipe-card');
+for (let i = 0; i < receitas.length; i++) {
+    receitas[i].addEventListener('click', function() {
+        window.location.href = `/recipes/${i}`
+    })
+}
 
-for (let card of cards) {
-    card.addEventListener('click', function(){
-        
-        const recipeContent = card.innerHTML
+const hideShowButton = document.querySelectorAll('.button')
+const recipeInfo = document.querySelectorAll('.hide-show')
 
-        const aFechar = document.createElement('a');
-        const fechar = document.createTextNode("Fechar")
-
-        const div = document.createElement('div');
-        
-        modalRecipe.innerHTML = recipeContent;
-
-        aFechar.appendChild(fechar);
-        aFechar.classList.add('close-modal')
-
-        div.appendChild(aFechar);
-        div.classList.add('exit-container');
-
-        modalRecipe.appendChild(div);
-
-        document.querySelector('.close-modal').addEventListener('click', function(){
-            modalOverlay.classList.remove('active');
-        })
-
-        modalOverlay.classList.add('active');
-
+for(let i = 0; i < hideShowButton.length; i++) {
+    hideShowButton[i].addEventListener('click', function(){
+        if (recipeInfo[i].classList.contains('hidden')) {
+            recipeInfo[i].classList.remove('hidden');
+            hideShowButton[i].textContent = "ESCONDER";
+        } else {
+            recipeInfo[i].classList.add('hidden')
+            hideShowButton[i].textContent = "MOSTRAR"
+        }
     });
 }
 
-
-
-
-
+console.log (hideShowButton);
+console.log(recipeInfo);
 
 
 
 // const modalOverlay = document.querySelector('.modal');
 // const cards = document.querySelectorAll('.card');
+// const modalRecipe = document.querySelector('.recipe-card');
 
+// for (let card of cards) {
+//     card.addEventListener('click', function(){
+        
+//         const recipeContent = card.innerHTML
 
-// for (let card of cards){
+//         const aFechar = document.createElement('a');
+//         const fechar = document.createTextNode("Fechar")
 
+//         const div = document.createElement('div');
+        
+//         modalRecipe.innerHTML = recipeContent;
 
-//     const recipeName = document.querySelectorAll('.card-info h3');
-//     const recipeAuthor = document.querySelector('.card-info h4');
+//         aFechar.appendChild(fechar);
+//         aFechar.classList.add('close-modal')
 
-//     const modalRecipeName = document.querySelectorAll('.recipe-content h1');
-//     const modalRecipeAuthor = document.querySelector('.recipe-content h2');
+//         div.appendChild(aFechar);
+//         div.classList.add('exit-container');
 
+//         modalRecipe.appendChild(div);
 
+//         document.querySelector('.close-modal').addEventListener('click', function(){
+//             modalOverlay.classList.remove('active');
+//         })
 
+//         modalOverlay.classList.add('active');
 
-
-
-//         for (let name of recipeName) {
-            
-//             const recipeId = name.getAttribute("id");
-
-//             for(let modalName of modalRecipeName) {
-
-//                 card.addEventListener('click', function(){
-
-//                     if (recipeId == name.textContent) {
-//                         console.log(recipeId)
-//                         console.log(name.textContent)  
-    
-//                         modalName.innerHTML = recipeId;
-//                     }
-    
-//                     modalOverlay.classList.add('active');
-    
-//                 })  
-
-//             }
-            
-
-    
-//         }
-    
+//     });
 // }
+
+
+
+
